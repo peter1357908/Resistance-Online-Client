@@ -4,7 +4,7 @@
 
 We will be building an online version of the popular game, Resistance. The game will be free-to-play with no sign-ups required!
 
-Please refer to (our protocol)[github.com/dartmouth-cs52-20S/project-api-online-multiplayer-game/blob/master/doc/protocol.md] for communication between front-end and back-end for some extra reading if you would like to!
+Please refer to [our protocol](github.com/dartmouth-cs52-20S/project-api-online-multiplayer-game/blob/master/doc/protocol.md) for communication between front end and back end for some extra reading if you would like to!
 
 ## Architecture
 
@@ -21,15 +21,15 @@ Frontend (host on Surge):
 * React
 * SCSS
 
-We will also use p5.js and mo.js to support some simple graphics / animations and for UI!
+We will also use p5.js and mo.js to support some simple graphics/animations and for UI!
 
 ## Setup
 
-We'll use yarn to manage our packages, like we've been doing in the labs. So, install all the dependencies with: `yarn install`
+We'll use yarn to manage our packages like we've been doing in the labs. So, install all the dependencies with: `yarn install`
 
 ## Deployment
 
-We'll deploy to the front-end surge, as we've been doing for the labs. As mentioned already, the back-end will be hosted on Heroku.
+We'll deploy to the front-end surge, as we've been doing for the labs. As mentioned already, the back end will be hosted on Heroku.
 
 ## Authors
 
