@@ -12,7 +12,7 @@
     "clean": "rimraf dist",
     "deploy": "yarn build; surge -p dist -d cs52-online-multiplayer-game.surge.sh; yarn clean"
   },
-  "repository": "git@github.com:dartmouth-cs52-20S/project-online-multiplayer-game.git",
+  "repository": "git@github.com:peter1357908/Resistance-Online-Client.git",
   "author": "Peter Gao <peter1357908@hotmail.com>",
   "license": "MIT",
   "dependencies": {
