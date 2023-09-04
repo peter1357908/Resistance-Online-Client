@@ -9,6 +9,7 @@ import MissionSucceededModal from './modals/mission-succeeded-modal';
 import MissionFailedModal from './modals/mission-failed-modal';
 import ResistanceWinsModal from './modals/resistance-wins-modal';
 import SpiesWinModal from './modals/spies-win-modal';
+import FactionReminder from './modals/faction-reminder';
 import { setModalToDisplay } from '../actions';
 
 function mapStateToProps(reduxState) {
@@ -17,6 +18,9 @@ function mapStateToProps(reduxState) {
     sessionID: reduxState.lobby.sessionID,
     modalToDisplay: reduxState.inGame.modalToDisplay,
     numFailVotes: reduxState.inGame.numFailVotes,
+    faction: reduxState.inGame.faction,
+    playerID: reduxState.inGame.playerID,
+    spies: reduxState.inGame.spies,
   };
 }
 
@@ -41,6 +45,13 @@ class InGame extends Component {
         <MissionFailedModal show={this.props.modalToDisplay === 'FAILED'} numFailVotes={this.props.numFailVotes} closeModal={() => this.props.setModalToDisplay('')} />
         <ResistanceWinsModal show={this.props.modalToDisplay === 'RESISTANCE'} faction={this.props.faction} closeModal={() => this.closeEndGameModal()} />
         <SpiesWinModal show={this.props.modalToDisplay === 'SPY'} faction={this.props.faction} closeModal={() => this.closeEndGameModal()} />
+        <FactionReminder
+          show={this.props.modalToDisplay === 'FACTION_REMINDER'}
+          faction={this.props.faction}
+          playerID={this.props.playerID}
+          spies={this.props.spies}
+          closeModal={() => this.props.setModalToDisplay('')}
+        />
         <SideBar />
         <div className={gamePhaseWrapper}>
           <GameBoard />

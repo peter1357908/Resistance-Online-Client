@@ -28,7 +28,6 @@ function mapStateToProps(reduxState) {
 class GameBoard extends Component {
   cardClicked = (ID) => {
     if (this.props.currentLeader === this.props.playerID && this.props.gamePhase === Phase.SELECTING_TEAM) {
-      console.log('am here');
       socket.emit('inGame', { action: 'cardClicked', cardPlayerID: ID });
     }
   }

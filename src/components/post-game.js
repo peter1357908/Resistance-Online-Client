@@ -85,7 +85,6 @@ class PostGame extends Component {
   }
 
   renderRoundReport = (round, roundIndex) => {
-    console.log(Object.entries(round.roundVoteComposition));
     const key = roundIndex + 1;
     return (
       <div className="round-report" key={key}>
@@ -162,13 +161,13 @@ class PostGame extends Component {
     const n = this.props.waitingFor.length;
     switch (n) {
       case 0:
-        return 'nobody...';
+        return 'nobody';
       case 1:
-        return `${this.props.waitingFor[0]}...`;
+        return `${this.props.waitingFor[0]}`;
       case 2:
-        return `${this.props.waitingFor[0]} and ${this.props.waitingFor[1]}...`;
+        return `${this.props.waitingFor[0]} and ${this.props.waitingFor[1]}`;
       case 3:
-        return `${this.props.waitingFor[0]}, ${this.props.waitingFor[1]}, and ${this.props.waitingFor[2]}...`;
+        return `${this.props.waitingFor[0]}, ${this.props.waitingFor[1]}, and ${this.props.waitingFor[2]}`;
       default:
         return `${n} players`;
     }
@@ -184,7 +183,7 @@ class PostGame extends Component {
     }
     return (
       <div className="bottom waitingFor">
-        Waiting for {this.getWaitingFor()}
+        Waiting for {this.getWaitingFor()} so that the game can return to the lobby
       </div>
     );
   }

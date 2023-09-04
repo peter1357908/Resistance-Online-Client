@@ -1,7 +1,7 @@
 import { ActionTypes } from '../actions';
 
 const initialState = {
-  victoriousFaction: 'SPY',
+  victoriousFaction: '',
   gameHistory: {
     missions: [
       {

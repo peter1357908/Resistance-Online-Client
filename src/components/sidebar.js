@@ -1,8 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import Chat from './chat';
+import { Phase } from '../resources/phase';
 import DirectionsModal from './modals/directions-modal';
+import { setModalToDisplay } from '../actions';
+
+function mapStateToProps(reduxState) {
+  return {
+    gamePhase: reduxState.inGame.gamePhase,
+    victoriousFaction: reduxState.postGame.victoriousFaction,
+  };
+}
 
 class SideBar extends Component {
   constructor(props) {
@@ -21,6 +31,10 @@ class SideBar extends Component {
     this.setState({ showDirections: false });
   }
 
+  redirectToDiscord = () => {
+    window.open('https://discord.gg/c3vAtpF', '_blank');
+  }
+
   toggleCollapse = () => {
     if (this.state.show) {
       this.setState({ show: false });
@@ -29,13 +43,31 @@ class SideBar extends Component {
     }
   }
 
+  redirectToDiscord = () => {
+    window.open('https://discord.gg/c3vAtpF', '_blank');
+  }
+
+  renderFactionReminderButton = () => {
+    if (this.props.gamePhase !== Phase.VIEWING_TEAM && this.props.victoriousFaction === '') {
+      return (
+        <div className="row-2">
+          <Button variant="secondary" className="faction-reminder-button" onClick={() => this.props.setModalToDisplay('FACTION_REMINDER')}>Show Faction</Button>
+        </div>
+      );
+    }
+    return <div />;
+  }
+
   renderMaterial = () => {
     if (this.state.show) {
       return (
         <div className="sidebar-material">
           <div className="sidebar-buttons">
-            <Button variant="secondary" className="directions-button" onClick={this.openDirections}>Directions</Button>
-            <Button variant="secondary" className="discord-button" onClick={this.thisMethodDoesNotExist} disabled>Join Discord</Button>
+            <div className="row-1">
+              <Button variant="secondary" className="directions-button" onClick={this.openDirections}>Directions</Button>
+              <Button variant="secondary" className="discord-button" onClick={this.redirectToDiscord}>Join Discord</Button>
+            </div>
+            {this.renderFactionReminderButton()}
           </div>
           <Chat />
         </div>
@@ -58,4 +90,4 @@ class SideBar extends Component {
   }
 }
 
-export default SideBar;
+export default connect(mapStateToProps, { setModalToDisplay })(SideBar);

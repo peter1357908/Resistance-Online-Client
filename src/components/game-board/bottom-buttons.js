@@ -20,7 +20,6 @@ function mapStateToProps(reduxState) {
 
 class BottomButtons extends Component {
   submitSelectedTeam = () => {
-    console.log(this.props.selectedPlayers);
     socket.emit('inGame', { action: 'proposeTeam', proposedTeam: this.props.selectedPlayers });
   }
 
@@ -99,7 +98,7 @@ class BottomButtons extends Component {
     if (this.props.selectedPlayers.includes(this.props.playerID) && this.props.acted === false) {
       return (
         <div className="horizontal-flex-center bottom-navigation">
-          <Button variant="primary" onClick={() => this.submitMissionVote('SUCCESS')}>
+          <Button variant="primary" onClick={() => this.submitMissionVote('SUCCEED')}>
             Succeed
           </Button>
           <Button variant="danger" className="negative" onClick={() => this.submitMissionVote('FAIL')}>

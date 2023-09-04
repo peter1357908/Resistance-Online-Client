@@ -21,7 +21,6 @@ class Lobby extends Component {
   // Relies on the backend to discard illegal startGame requests
   // TODO: authentication
   onClickStart = (event) => {
-    console.log('clicked start');
     this.props.setFailed(false);
     socket.emit('lobby', { action: 'startGame' });
   }

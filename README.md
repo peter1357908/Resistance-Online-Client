@@ -4,7 +4,12 @@
 
 We will be building an online version of the popular game, Resistance. The game will be free-to-play with no sign-ups required!
 
+
 Please refer to [our protocol](https://github.com/peter1357908/Resistance-Online-Server/blob/Peter/doc/protocol.md) for communication between front end and back end for some extra reading if you would like to!
+
+Here's a little sneak peek at our project in action:
+
+![Project Demo](./images/game_demo.gif)
 
 ## Architecture
 

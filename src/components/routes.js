@@ -59,8 +59,6 @@ class Router extends Component {
   componentDidMount() {
     // start listening on lobby
     socket.on('lobby', (result) => {
-      console.log(result.action);
-      console.log(result);
       switch (result.action) {
         case 'gameStarted':
           this.props.history.push(`/in-game/${this.props.sessionID}`);
@@ -87,9 +85,7 @@ class Router extends Component {
     });
 
     // start listening on inGame
-    console.log('component mounted');
     socket.on('inGame', (result) => {
-      console.log('ingame action: ', result.action);
       switch (result.action) {
         case 'gameStarted':
           this.props.setPlayerID(this.props.lobbyPlayerID); // move copy the playerID from lobby to in-game
@@ -170,18 +166,15 @@ class Router extends Component {
           break;
         case 'gameFinished':
           this.props.setModalToDisplay(result.victoriousFaction);
-          // this.props.history.push(`/post-game/${this.props.sessionID}`);
           break;
         default:
           console.log('unknown action received from server: ', result.action);
           break;
       }
-      console.log('result: ', result);
     });
 
     // start listening on post-game
     socket.on('postGame', (result) => {
-      console.log('postGame action: ', result.action);
       switch (result.action) {
         case 'gameHistory':
           this.props.setWaitingFor([]);
@@ -193,6 +186,8 @@ class Router extends Component {
         case 'waitingFor':
           if (result.waitingFor.length === 0) {
             this.props.history.push('/lobby');
+            this.props.setGamePhase(Phase.VIEWING_TEAM);
+            this.props.setVictoriousFaction('');
           }
           this.props.setWaitingFor(result.waitingFor);
           break;
@@ -200,7 +195,6 @@ class Router extends Component {
           console.log('unknown action received from server: ', result.action);
           break;
       }
-      console.log('result: ', result);
     });
   }
 

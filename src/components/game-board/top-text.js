@@ -53,7 +53,7 @@ class TopText extends Component {
         }
       case Phase.MISSION:
         if (this.props.selected.includes(this.props.playerID) && this.props.acted === false) {
-          return 'Choose how you want to act on the mission';
+          return 'How would you like the mission to proceed?';
         }
         return `Mission is ongoing. Waiting for ${this.getWaitingFor()}...`;
       default:

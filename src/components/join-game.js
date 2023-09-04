@@ -33,9 +33,6 @@ class JoinGame extends Component {
         this.props.setCurrentPlayerID(result.playerID);
         this.props.setPlayerID(result.playerID);
         this.props.setCreatorID(result.creatorID);
-        if (result.action === 'quitGame') {
-          console.log('quitting game'); // Display something here
-        }
         this.props.history.push('/lobby');
       }
     });
@@ -72,7 +69,6 @@ class JoinGame extends Component {
   }
 
   renderJoinButton = () => {
-    console.log(this.state.playerID);
     if (isEmptyOrSpaces(this.state.sessionID) || isEmptyOrSpaces(this.state.playerID) || isEmptyOrSpaces(this.state.password)) {
       return (
         <Button variant="primary" onClick={this.onClickJoin} disabled>

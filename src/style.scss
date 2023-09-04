@@ -508,14 +508,21 @@ body {
       .sidebar-buttons {
         background-color: #AAAAAA;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        align-items: space-around;
+        height: 120px;
 
         button {
-          margin: 10px;
-
+          margin: 0px 5px;
           font-size: 16px;
+        }
+
+        .row-1, .row-2 {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: space-around;
+          margin: 3px 0px;
         }
       }
     }
@@ -540,6 +547,7 @@ body {
     background-color: #AAAAAA;
     height: 100%;
     width: 300px;
+    border-top: solid 1.2px #999999;
 
     // temporary formatting to put this text in the center
     display: flex;
@@ -729,6 +737,7 @@ body {
             .on-mission {
               border: solid 1.2px #AAAAAA;
               border-radius: 10px;
+              padding: 0px 5px;
             }
           }
 
@@ -748,7 +757,7 @@ body {
               margin: 0px 10px 0px 10px;
             }
 
-            .SUCCESS {
+            .SUCCEED {
               color: $resistance-blue;
               font-weight: 550;
             }
