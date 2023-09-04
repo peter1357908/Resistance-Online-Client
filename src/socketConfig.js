@@ -1,7 +1,7 @@
 import io from 'socket.io-client';
 
-// const socketserver = 'https://cs52-multiplayer-online-game.herokuapp.com/';
-const socketserver = 'http://localhost:9090/';
+const socketserver = 'https://resistance-online-server.adaptable.app';
+// const socketserver = 'http://localhost:9090/';
 
 const socket = io(socketserver);
 socket.on('connect', () => { console.log('socket.io connected'); });
